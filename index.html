@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="EvolVIT, the 100th official club of VIT Bhopal University. Discover our events, teams, industry collaborations and internship program."
+    />
+    <title>EvolVIT — Campus to Career</title>
+    <style>
+      :root {
+        --bg: #0b0a19;
+        --panel: #141329;
+        --ink: #f4f1ff;
+        --muted: #b5b2c9;
+        --cyan: #28d1e6;
+        --line: #ffffff20;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          16px/1.65 Arial,
+          Helvetica,
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:hover {
+        color: var(--cyan);
+      }
+      a:focus-visible,
+      summary:focus-visible {
+        outline: 2px solid var(--cyan);
+        outline-offset: 5px;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #0b0a19f5;
+        border-bottom: 1px solid var(--line);
+      }
+      nav {
+        max-width: 1240px;
+        margin: auto;
+        padding: 18px 30px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .brand {
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+      .brand span,
+      .cyan {
+        color: var(--cyan);
+      }
+      nav .links {
+        margin-left: auto;
+        display: flex;
+        gap: 26px;
+        font-size: 14px;
+      }
+      .wrap {
+        max-width: 1240px;
+        margin: auto;
+        padding: 0 30px;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        color: var(--cyan);
+        font-size: 12px;
+        letter-spacing: 2px;
+        font-weight: bold;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 56px;
+        padding-top: 68px;
+        padding-bottom: 68px;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: clamp(54px, 6.8vw, 88px);
+        line-height: 1.03;
+        letter-spacing: -5px;
+        margin: 25px 0;
+      }
+      .hero p {
+        max-width: 460px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .button {
+        display: inline-block;
+        background: var(--cyan);
+        color: #081018;
+        padding: 13px 22px;
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 20px;
+      }
+      .button:hover {
+        background: #a0f6ff;
+        color: #081018;
+      }
+      .hero figure {
+        margin: 0;
+        position: relative;
+      }
+      .hero img {
+        width: 100%;
+        height: 480px;
+        object-fit: cover;
+        border-radius: 110px 0 0 0;
+      }
+      .hero figcaption {
+        border-left: 3px solid var(--cyan);
+        background: var(--panel);
+        padding: 16px 20px;
+        position: relative;
+        margin: -36px 24px 0;
+        font-size: 14px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 28px 0;
+      }
+      .stat {
+        border-right: 1px solid var(--line);
+        padding-left: 28px;
+      }
+      .stat:last-child {
+        border: 0;
+      }
+      .stat strong {
+        display: block;
+        font-size: 34px;
+        line-height: 1.2;
+      }
+      .stat span {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      section {
+        padding: 85px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      h2 {
+        font-size: clamp(34px, 4vw, 52px);
+        line-height: 1.14;
+        letter-spacing: -2px;
+        margin: 14px 0 24px;
+      }
+      h3 {
+        font-size: 24px;
+        line-height: 1.25;
+        margin: 12px 0;
+      }
+      p {
+        color: var(--muted);
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+      }
+      .quote {
+        font-size: 28px;
+        line-height: 1.4;
+        border-left: 2px solid var(--cyan);
+        padding-left: 26px;
+        color: var(--ink);
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 30px;
+      }
+      .card {
+        background: var(--panel);
+        padding: 28px;
+        border: 1px solid var(--line);
+      }
+      .card .num {
+        font-size: 13px;
+        color: var(--cyan);
+      }
+      .card h3 {
+        font-size: 21px;
+      }
+      .card p {
+        margin-bottom: 0;
+      }
+      .event {
+        padding: 40px 0;
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 40px;
+      }
+      .event img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+      }
+      .event h3 {
+        font-size: 32px;
+      }
+      .event .number {
+        font-size: 66px;
+        line-height: 1;
+        color: var(--cyan);
+        letter-spacing: -3px;
+      }
+      .event .tag {
+        font-size: 12px;
+        color: var(--cyan);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+      .event p {
+        margin: 10px 0 18px;
+      }
+      .event .sub {
+        color: var(--ink);
+        font-weight: bold;
+      }
+      details {
+        margin-top: 18px;
+        border-top: 1px solid var(--line);
+        padding-top: 15px;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--cyan);
+        font-size: 14px;
+      }
+      .winners {
+        padding: 0;
+        list-style: none;
+      }
+      .winners li {
+        padding: 9px 0;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        gap: 20px;
+      }
+      .winners span {
+        min-width: 100px;
+        color: var(--cyan);
+        font-size: 13px;
+      }
+      .winners b {
+        font-size: 14px;
+        font-weight: normal;
+      }
+      .partners {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .partners ul {
+        color: var(--muted);
+        padding-left: 20px;
+      }
+      .steps {
+        counter-reset: step;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+        margin-top: 35px;
+      }
+      .step {
+        border-top: 2px solid var(--cyan);
+        padding-top: 15px;
+      }
+      .step:before {
+        counter-increment: step;
+        content: "0" counter(step);
+        font-size: 14px;
+        color: var(--cyan);
+      }
+      .step h3 {
+        font-size: 18px;
+      }
+      .step p {
+        font-size: 14px;
+      }
+      .people {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .people h3 {
+        font-size: 20px;
+      }
+      .team-photo {
+        width: 100%;
+        max-height: 480px;
+        object-fit: cover;
+        margin-top: 30px;
+      }
+      .note {
+        border-left: 2px solid var(--cyan);
+        padding: 12px 20px;
+        background: var(--panel);
+        font-size: 14px;
+      }
+      .closing {
+        background: linear-gradient(110deg, #171330, #0b0a19);
+        padding: 65px 0;
+      }
+      footer {
+        padding: 28px 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .ideagraph {
+        background: var(--panel);
+        min-height: 280px;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--line);
+      }
+      .ideagraph b {
+        font-size: 42px;
+        line-height: 1.2;
+        letter-spacing: -2px;
+      }
+      .ideagraph span {
+        color: var(--cyan);
+        font-size: 13px;
+      }
+      @media (max-width: 750px) {
+        nav {
+          padding: 14px 20px;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        nav .links {
+          gap: 16px;
+          overflow-x: auto;
+          width: 100%;
+          margin: 0;
+          font-size: 13px;
+        }
+        .wrap {
+          padding: 0 20px;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 42px 0;
+        }
+        .hero h1 {
+          letter-spacing: -3px;
+        }
+        .hero img {
+          height: 360px;
+        }
+        .stats {
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+        }
+        .stat:nth-child(2) {
+          border: 0;
+        }
+        .split,
+        .event,
+        .partners {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .cards,
+        .people {
+          grid-template-columns: 1fr;
+        }
+        .steps {
+          grid-template-columns: 1fr 1fr;
+        }
+        .event {
+          padding: 30px 0;
+        }
+        section {
+          padding: 55px 0;
+        }
+        footer .wrap {
+          flex-direction: column;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="brand" href="#home" aria-label="EvolVIT home"
+          >Evol<span>VIT</span></a
+        >
+        <div class="links">
+          <a href="#about">About</a><a href="#events">Events</a
+          ><a href="#internships">Internships</a><a href="#teams">Our teams</a
+          ><a href="#members">Members</a><a href="#connect">Connect ↗</a>
+        </div>
+      </nav>
+    </header>
+    <main id="home">
+      <div class="wrap">
+        <div class="hero">
+          <div>
+            <div class="eyebrow">
+              VIT Bhopal University · 100th official club
+            </div>
+            <h1>
+              Beyond<br />classrooms.<br /><span class="cyan"
+                >Into industry.</span
+              >
+            </h1>
+            <p>
+              Evolve. Experience. Excel.<br />A student community turning
+              classroom learning into real-world skills, meaningful projects,
+              and industry connections.
+            </p>
+            <a class="button" href="#events">Explore our journey ↗</a>
+          </div>
+          <figure>
+            <img
+              src="assets/p1-0.jpg"
+              alt="EvolVIT students during the Appointy industrial visit"
+            />
+            <figcaption>
+              <span class="cyan">FIELD NOTES / 2025–26</span><br />Campus to
+              career. Together.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <strong>100th</strong><span>Official club of VIT Bhopal</span>
+          </div>
+          <div class="stat"><strong>06</strong><span>Core teams</span></div>
+          <div class="stat">
+            <strong>02</strong><span>Industry partners</span>
+          </div>
+          <div class="stat">
+            <strong>04</strong><span>Flagship events · 2025–26</span>
+          </div>
+        </div>
+        <section id="about">
+          <div class="split">
+            <div>
+              <div class="eyebrow">01 / Who we are</div>
+              <h2>Learning that goes<br />out into the world.</h2>
+              <p class="quote">
+                “Evolving students into real-world innovators.”
+              </p>
+            </div>
+            <div>
+              <p>
+                EvolVIT bridges what gets taught in a classroom and what gets
+                expected on a job floor. Through industrial visits, hackathons,
+                seminars, and structured interview and placement preparation, we
+                connect VIT Bhopal students with real industry problems.
+              </p>
+              <p>
+                We go beyond exposure. Our company partnerships place selected
+                members in internships working on live products, real deadlines,
+                and real user needs. Our mission is to translate textbook
+                learning into industry-ready skill—one problem, one company, and
+                one result at a time.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="events">
+          <div class="eyebrow">02 / The 2025–26 event record</div>
+          <h2>Moments that moved us forward.</h2>
+          <article class="event">
+            <div>
+              <img
+                loading="lazy"
+                src="assets/p7-0.jpg"
+                alt="Poster exhibition at EvolART"
+              />
+            </div>
+            <div>
+              <div class="tag">01 / Inaugural event</div>
+              <h3>EvolART</h3>
+              <p class="sub">A creative beginning.</p>
+              <p>
+                Our first poster exhibition and competition marked EvolVIT’s
+                launch as VIT Bhopal’s 100th club. Students explored human and
+                artificial intelligence, digital detox, and student mental
+                stress.
+              </p>
+              <details>
+                <summary>Event details & winners</summary>
+                <p>
+                  81 teams entered online; the top 15 advanced to the Mini
+                  Auditorium. A five-member panel assessed relevance,
+                  creativity, detailing, and visual impact. The final exhibition
+                  took place in the presence of Vice Chancellor Dr. T. B.
+                  Shridharan, the DSW, and Assistant DSW.
+                </p>
+                <ul class="winners">
+                  <li><span>1st</span><b>Bhawesh Kumar Gautam</b></li>
+                  <li>
+                    <span>2nd</span><b>Tushar Kumar Gupta & Palak Choithani</b>
+                  </li>
+                  <li><span>3rd</span><b>Mansaa Kohli & Aastha Adhikari</b></li>
+                  <li>
+                    <span>4th</span><b>Roopsha Ghosh & Shivendra Pandey</b>
+                  </li>
+                  <li><span>5th</span><b>Raunit Kumar & Diya Tanwani</b></li>
+                </ul>
+              </details>
+            </div>
+          </article>
+          <article class="event">
+            <div>
+              <div class="ideagraph">
+                <span>IDEA → IMPACT</span
+                ><b
+                  >Think it.<br />Pitch it.<br /><span style="font-size: 42px"
+                    >Build what’s next.</span
+                  ></b
+                ><span>ONLINE IDEATHON / IDEA2INDUSTRY</span>
+              </div>
+            </div>
+            <div>
+              <div class="tag">02 / Online ideathon</div>
+              <h3>Idea2Industry</h3>
+              <p class="sub">Real problems. Practical ideas.</p>
+              <p>
+                A multi-stage ideathon where students proposed technically
+                feasible answers to real-world problems, developing teamwork,
+                creativity, and an entrepreneurial mindset.
+              </p>
+              <details>
+                <summary>Event details & winners</summary>
+                <p>
+                  Idea submission → shortlisting → live pitching → industrial
+                  visit selection. Judges evaluated innovation, originality,
+                  practicality, technical viability, scalability, and
+                  presentation clarity. The top 30 performers earned a place on
+                  the Appointy visit.
+                </p>
+                <ul class="winners">
+                  <li><span>Winner</span><b>Aditi Singh</b></li>
+                  <li><span>1st runner-up</span><b>Anshima</b></li>
+                  <li><span>2nd runner-up</span><b>Shambhavi Dixit</b></li>
+                </ul>
+              </details>
+            </div>
+          </article>
+          <article class="event">
+            <div>
+              <img
+                loading="lazy"
+                src="assets/p9-1.jpg"
+                alt="Students visiting Appointy"
+              />
+            </div>
+            <div>
+              <div class="tag">03 / Industrial visit</div>
+              <h3>Appointy, Bhopal</h3>
+              <p class="sub">Inside the world of work.</p>
+              <p>
+                40 students, including the top 30 Idea2Industry performers,
+                visited Appointy to see how a Bhopal-based technology company
+                builds scalable solutions for international clients.
+              </p>
+              <details>
+                <summary>Event details</summary>
+                <p>
+                  Students explored planning, coding, testing, deployment, and
+                  continuous improvement; discussed AI, automation, data-driven
+                  decisions, QA, and user-centric design; and received career
+                  guidance through an open Q&A. Guided by Dr. Chandan Kumar
+                  Behera, Dr. Trapti Sharma, and Dr. Prakash N. B.
+                </p>
+              </details>
+            </div>
+          </article>
+          <article class="event">
+            <div>
+              <img
+                loading="lazy"
+                src="assets/p10-0.jpg"
+                alt="Brigadier Rajneesh Gaur addressing students"
+              />
+            </div>
+            <div>
+              <div class="tag">04 / With Defence Warrior Club</div>
+              <h3>Youth as Game Changers for Viksit Bharat</h3>
+              <p class="sub">A generation with purpose.</p>
+              <p>
+                Themed “Role from 2026 to 2047,” this joint orientation explored
+                students’ contribution to a Developed India by 2047.
+              </p>
+              <details>
+                <summary>Event details</summary>
+                <p>
+                  Chief Guest Brigadier Rajneesh Gaur, Deputy Director General
+                  of NCC MP & CG Directorate, spoke about discipline,
+                  dedication, leadership, national service, and the NCC’s role
+                  in character building. Students discussed career, service, and
+                  citizenship. The event closed with feedback, a vote of thanks,
+                  and the National Anthem.
+                </p>
+              </details>
+            </div>
+          </article>
+        </section>
+        <section id="internships">
+          <div class="eyebrow">03 / Learn · Apply · Impact</div>
+          <h2>The EvolVIT Internship Program.</h2>
+          <p>
+            Selected members work on meaningful live projects with industry
+            professionals. Company collaborations, practical experience, expert
+            feedback, technical and professional growth, and stronger career
+            prospects sit at the heart of the program.
+          </p>
+          <div class="partners">
+            <article class="card">
+              <div class="eyebrow">Datatrack, Bhopal / 3 months</div>
+              <h3>Learn by building real products.</h3>
+              <p>
+                Hands-on work in n8n workflow automation, 3D web development,
+                and modern build frameworks such as Speckit, applied across four
+                live projects.
+              </p>
+              <ul>
+                <li>Uprole — uprole.me</li>
+                <li>AI Worksheet Analyzer — pracup.co.in</li>
+                <li>Atithi — Visitor Management System (internal build)</li>
+                <li>Centralized EV Discovery Platform (internal build)</li>
+              </ul>
+              <p class="note">
+                The club record reports this internship was recognised for 4
+                college credits by the respective authority.
+              </p>
+            </article>
+            <article class="card">
+              <div class="eyebrow">
+                Quantumard Software Development / 1 month
+              </div>
+              <h3>A focused full-stack build sprint.</h3>
+              <p>
+                A Project Management System for EvolVIT’s exhibit workflows,
+                with role-based access for administrators, managers, and
+                members.
+              </p>
+              <ul>
+                <li>Project and task tracking</li>
+                <li>Admin and student profile management</li>
+                <li>Department controls through an admin panel</li>
+                <li>JWT-based secure, role-based authentication</li>
+              </ul>
+              <p>
+                Built with Next.js, Tailwind, TypeScript, Node, Express, and
+                MongoDB.
+              </p>
+            </article>
+          </div>
+          <h3 style="margin-top: 45px">The path to the Research Team</h3>
+          <p>
+            The Research Team builds industry partnerships. Top-performing club
+            members progress through a five-stage evaluation to qualify for
+            internship opportunities.
+          </p>
+          <div class="steps">
+            <div class="step">
+              <h3>Initial screening</h3>
+              <p>Applications are reviewed to shortlist suitable candidates.</p>
+            </div>
+            <div class="step">
+              <h3>Skill assessment</h3>
+              <p>
+                Individual mini-projects test technical competence within a
+                defined timeline.
+              </p>
+            </div>
+            <div class="step">
+              <h3>Performance evaluation</h3>
+              <p>Candidates are evaluated on their assigned mini-projects.</p>
+            </div>
+            <div class="step">
+              <h3>Company assessment</h3>
+              <p>
+                The hiring company conducts an additional assessment or test.
+              </p>
+            </div>
+            <div class="step">
+              <h3>Internship placement</h3>
+              <p>Successful candidates move into the internship.</p>
+            </div>
+          </div>
+        </section>
+        <section id="teams">
+          <div class="eyebrow">04 / Behind the scenes</div>
+          <h2>Six teams. One shared ambition.</h2>
+          <p>
+            From the first concept to the final wrap-up, these are the people
+            and skills behind every EvolVIT event.
+          </p>
+          <div class="cards">
+            <article class="card">
+              <span class="num">01 / EVOLVIT</span>
+              <h3>Tech Team</h3>
+              <p>
+                Submission portals, judging platforms, on-ground technical
+                support, and hackathon and challenge design.
+              </p>
+            </article>
+            <article class="card">
+              <span class="num">02 / EVOLVIT</span>
+              <h3>Event Management Team</h3>
+              <p>
+                Venue booking, schedules, volunteers, and event-day
+                coordination, from registration to wrap-up.
+              </p>
+            </article>
+            <article class="card">
+              <span class="num">03 / EVOLVIT</span>
+              <h3>Social Media & Photography</h3>
+              <p>
+                Our online presence, event photography, reels, and recaps that
+                tell the EvolVIT story.
+              </p>
+            </article>
+            <article class="card">
+              <span class="num">04 / EVOLVIT</span>
+              <h3>Content Team</h3>
+              <p>
+                Problem statements, scripts, certificates, and reports that keep
+                our message clear and consistent.
+              </p>
+            </article>
+            <article class="card">
+              <span class="num">05 / EVOLVIT</span>
+              <h3>Design Team</h3>
+              <p>
+                Posters, banners, certificates, decks, and digital creatives
+                that bring every event to life.
+              </p>
+            </article>
+            <article class="card">
+              <span class="num">06 / EVOLVIT</span>
+              <h3>PR & Outreach Team</h3>
+              <p>
+                Relationships with companies, guest speakers, and partner clubs,
+                plus internal and external communication.
+              </p>
+            </article>
+          </div>
+        </section>
+        <section id="members">
+          <div class="eyebrow">05 / Our community</div>
+          <h2>The people behind EvolVIT.</h2>
+          <img
+            class="team-photo"
+            loading="lazy"
+            src="assets/p2-0.jpg"
+            alt="EvolVIT club members together"
+          />
+          <p class="note">
+            The 2025–26 club record includes this group photograph and team
+            descriptions, but does not provide an individual member roster.
+            Member names and roles will be added when the official roster is
+            available.
+          </p>
+          <h3>Faculty & visit guidance</h3>
+          <div class="people">
+            <div>
+              <h3>Dr. Prakash N. B.</h3>
+              <p>Faculty Coordinator</p>
+            </div>
+            <div>
+              <h3>Dr. Chandan Kumar Behera</h3>
+              <p>Assistant Director, Student Welfare</p>
+            </div>
+            <div>
+              <h3>Dr. Trapti Sharma</h3>
+              <p>Student Welfare Coordinator</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section id="connect" class="closing">
+        <div class="wrap split">
+          <div>
+            <div class="eyebrow">Campus to career</div>
+            <h2>
+              Keep evolving.<br /><span class="cyan">Stay connected.</span>
+            </h2>
+          </div>
+          <div>
+            <p>
+              Follow EvolVIT for the club’s latest stories and announcements.
+            </p>
+            <a
+              class="button"
+              href="https://www.instagram.com/evolvitclub_vitb/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Instagram · @evolvitclub_vitb ↗</a
+            >
+            <p>Find us on LinkedIn as <strong>EvolVIT</strong>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span class="brand">Evol<span>VIT</span></span
+        ><span>VIT Bhopal University · Official Club Record 2025–26</span
+        ><a href="#home">Back to top ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>
